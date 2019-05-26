@@ -47,3 +47,9 @@ function cadastrando_post_type_imoveis() {
 add_action('init', 'cadastrando_post_type_imoveis');
 
 //############################################
+//registrando o menu
+function registrar_menu_navegacao(){
+    register_nav_menu('header-menu','main-menu');
+}
+
+add_action('init', 'registrar_menu_navegacao');
