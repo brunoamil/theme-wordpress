@@ -7,6 +7,9 @@
         <link rel="stylesheet" type="text/css" href="<?= $home; ?>/reset.css">
         <link rel="stylesheet" type="text/css" href="<?= $home; ?>/style.css">
 
+        <link rel="stylesheet" type="text/css" href="<?= $home; ?>/assets/css/comum.css">
+        <link rel="stylesheet" type="text/css" href="<?= $home; ?>/assets/css/header.css">
+        <link rel="stylesheet" type="text/css" href="<?= $home; ?>/assets/css/<?= $css_especifico; ?>.css">
         <!-- chamando o menu admin quando tiver logado -->
         <?php wp_head(); ?>
     </head>
