@@ -1,15 +1,45 @@
 <!-- chamando o header -->
 <?php 
+$existeBusca = array_key_exists('taxonomy', $_GET);
+if($existeBusca && $_GET['taxonomy'] === ''){
+    wp_redirect(home_url());
+}
+
 $css_especifico = 'index';
 require_once('header.php'); ?>
 
 <main class="home-main">
     <div class="container">
-    <h1> Bem vindo! :) </h1>
 
+    <?php $taxonomias = get_terms('localizacao'); ?>
+        <form class="busca-localizacao" action="<?= bloginfo('url'); ?>">
+            <select name="taxonomy">
+                <option value="">Todos</option>
+                <?php foreach($taxonomias as $taxonomia) { ?>
+                <option value="<?= $taxonomia->slug; ?>"><?= $taxonomia->name ?></option>
+                <?php } ?>
+            </select>
+            <button type="submit">Filtrar </button>
+        </form>
         <!-- chamando meus post-imoveis -->
         <?php 
-            $args = array('post_type' => 'imovel');
+
+            if($existeBusca) {
+                $tax_query = array(
+                    array(
+                        'taxonomy' => 'localizacao',
+                        'field' => 'slug',
+                        'terms' => $_GET['taxonomy']
+                    )
+                );
+            }
+           
+
+            $args = array(
+                'post_type' => 'imovel',
+                'tax_query' => $tax_query
+            );
+
             $loop = new WP_Query($args);
         ?>
 

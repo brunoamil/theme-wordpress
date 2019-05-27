@@ -4,6 +4,7 @@
         <!-- salvando a funcao directory -->
         <?php $home = get_template_directory_uri(); ?>
         <meta charset="utf-8">
+        <title> <?php geraTitle(); ?></title>
         <link rel="stylesheet" type="text/css" href="<?= $home; ?>/reset.css">
         <link rel="stylesheet" type="text/css" href="<?= $home; ?>/style.css">
 

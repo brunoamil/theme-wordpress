@@ -23,7 +23,7 @@ require_once('header.php'); ?>
 
 ?>
     <?php if(is_page('contato')) { ?>
-        <form>
+        <form method="post">
 			<div class="form-nome">
 				<label for="form-nome">Nome:</label>
 				<input id="form-nome" type="text" placeholder="Seu nome aqui" name="form-nome">
